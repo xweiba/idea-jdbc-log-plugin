@@ -1,0 +1,19 @@
+<idea-plugin>
+    <id>tk.weiba.idea.plugin.jdbc</id>
+    <name>JDBC-SQL-Log</name>
+    <vendor email="xiaoweiba1028@gmail.com" url="https://github.com/xweiba/mysql-log-plugin">小尾巴</vendor>
+
+    <description><![CDATA[
+      Idea JDBC SQL Log Plugin 插件<br>
+      <em>1. 基于Java Agent模式加载</em><br>
+      <em>2. 代理java.sql.PreparedStatement实现log输出</em><br>
+      <em>3. 感谢小傅哥</em><br>]]></description>
+
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <java.programPatcher implementation="tk.weiba.idea.plugin.jdbc.AddJDBCAgentRunConfigByIdea" order="last"/>
+    </extensions>
+
+</idea-plugin>

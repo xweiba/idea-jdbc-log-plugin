@@ -1,4 +1,4 @@
-rootProject.name = 'mysql-log-plugin'
-include 'mysql-log-agent'
-include 'mysql-log-idea'
+rootProject.name = 'jdbc-log-plugin'
+include 'jdbc-log-agent'
+include 'jdbc-log-idea'
 

@@ -9,8 +9,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/mysql-log-agent" />
-            <option value="$PROJECT_DIR$/mysql-log-idea" />
+            <option value="$PROJECT_DIR$/jdbc-log-agent" />
+            <option value="$PROJECT_DIR$/jdbc-log-idea" />
           </set>
         </option>
       </GradleProjectSettings>
