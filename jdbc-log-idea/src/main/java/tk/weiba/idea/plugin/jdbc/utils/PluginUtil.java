@@ -14,7 +14,7 @@ public class PluginUtil {
     private static final IdeaPluginDescriptor IDEA_PLUGIN_DESCRIPTOR;
 
     static {
-        PluginId pluginId = PluginId.getId("tk.weiba.idea.plugin.mysql");
+        PluginId pluginId = PluginId.getId("tk.weiba.idea.plugin.jdbc");
         IDEA_PLUGIN_DESCRIPTOR = PluginManager.getPlugin(pluginId);
     }
 

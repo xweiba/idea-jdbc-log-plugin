@@ -1,4 +1,4 @@
-rootProject.name = 'jdbc-log-plugin'
+rootProject.name = 'idea-jdbc-log-plugin'
 include 'jdbc-log-agent'
 include 'jdbc-log-idea'
 
