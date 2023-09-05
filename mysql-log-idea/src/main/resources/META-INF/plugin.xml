@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>tk.weiba.idea.plugin.mysql</id>
+    <name>Mysql-Log</name>
+    <vendor email="xiaoweiba1028@gmail.com" url="https://github.com/xweiba/mysql-log-plugin">小尾巴</vendor>
+
+    <description><![CDATA[
+      Mysql Log Idea 插件<br>
+      <em>1. 基于Java Agent模式加载</em>
+      <em>2. 代理ClientPreparedStatement实现log输出</em>
+      <em>3. 感谢小傅哥</em>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+        on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="193.5662"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <java.programPatcher implementation="tk.weiba.idea.plugin.mysql.AddMysqlAgentRunConfigByIdea"/>
+    </extensions>
+
+</idea-plugin>

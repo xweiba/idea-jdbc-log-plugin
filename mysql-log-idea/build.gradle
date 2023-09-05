@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.6.3'
+}
+
+group 'tk.weiba.idea.plugin.mysql'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+jar.enabled = true
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'cn.hutool', name: 'hutool-all', version: '5.6.4'
+    implementation fileTree(dir: 'libs', includes: ['*jar'])
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+intellij {
+    version '2018.3.6'
+}
+
+patchPluginXml {
+    changeNotes """
+      <![CDATA[
+      Idea Mysql Log Plugin<br>
+    ]]>"""
+}
