@@ -10,7 +10,7 @@ import java.util.concurrent.Callable;
 
 import static tk.weiba.idea.plugin.jdbc.core.Constants.*;
 
-public class MonitorMethod {
+public class InterceptMethod {
 
     @RuntimeType
     public static Object intercept(@This Object obj, @Origin Method method, @SuperCall Callable<?> callable, @AllArguments Object... args) throws Exception {

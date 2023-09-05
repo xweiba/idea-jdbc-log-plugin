@@ -18,7 +18,7 @@ public class JDBCStatementProxy implements ClassFileTransformer {
         AgentBuilder.Transformer transformer = (builder, typeDescription, classLoader, javaModule) -> {
             return builder
                     .method(ElementMatchers.named("execute")) // 拦截任意方法
-                    .intercept(MethodDelegation.to(MonitorMethod.class)); // 委托
+                    .intercept(MethodDelegation.to(InterceptMethod.class)); // 委托
         };
         new AgentBuilder
                 .Default()
