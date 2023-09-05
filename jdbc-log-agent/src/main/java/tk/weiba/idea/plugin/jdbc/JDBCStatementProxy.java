@@ -25,17 +25,17 @@ public class JDBCStatementProxy implements ClassFileTransformer {
                 .type(ElementMatchers.isSubTypeOf(java.sql.PreparedStatement.class))
                 .transform(transformer)
                 .installOn(inst);
-        System.out.println(Constants.JDBC_SQL_LOG_MARK + "java.sql.PreparedStatement execute 开启代理");
+        System.out.println(Constants.JDBC_SQL_LOG_MARK + " java.sql.PreparedStatement execute 代理开启");
     }
 
     //如果代理类没有实现上面的方法，那么 JVM 将尝试调用该方法
     public static void premain(String agentArgs) {
-        System.out.println(Constants.JDBC_SQL_LOG_MARK + "default premain");
+        System.out.println(Constants.JDBC_SQL_LOG_MARK + " default premain");
     }
 
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
-        System.out.println(Constants.JDBC_SQL_LOG_MARK + "default transform");
+        System.out.println(Constants.JDBC_SQL_LOG_MARK + " default transform");
         return new byte[0];
     }
 }

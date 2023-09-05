@@ -27,25 +27,24 @@ public class InterceptMethod {
                 String replaceSql = replacePlaceholders(originalSql, (Object[]) BeanUtil.getFieldValue(obj, "parameters"));
                 outputSql("Mariadb", originalSql, replaceSql);
             } else if (!EXCLUDE_CLASS.contains(className)){
-                System.out.println(JDBC_SQL_LOG_MARK + "未适配: " + className);
+                System.out.println(JDBC_SQL_LOG_MARK + " 未适配: " + className);
             }
         }
     }
 
     private static void outputSql(String type, String originalSql, String replaceSql) {
-        // 构建输出字符串
-        // 移除换行符
-        originalSql = originalSql.replaceAll("\\n", " ");
-        replaceSql = replaceSql.replaceAll("\\n", " ");
+        // 移除换行符 多空变为一空
+        originalSql = originalSql.replaceAll("\\n", " ").replaceAll("\\s+", " ");
+        replaceSql = replaceSql.replaceAll("\\n", " ").replaceAll("\\s+", " ");
 
         StringBuilder output = new StringBuilder();
-        output.append("\n");
         output.append(JDBC_SQL_LOG_MARK).append(replace).append("\n");
-        output.append(JDBC_SQL_LOG_MARK).append("ThreadId:").append(Thread.currentThread().getId()).append("--Type:").append(type).append("--Time:").append(LocalDateTime.now().format(formatter)).append("\n");
-        output.append(JDBC_SQL_LOG_MARK).append("原始SQL：").append(originalSql).append("\n");
-        output.append(JDBC_SQL_LOG_MARK).append("执行SQL：").append(replaceSql).append("\n");
-        output.append(JDBC_SQL_LOG_MARK).append(replace).append("\n");
-        output.append("\n");
+        output.append(JDBC_SQL_LOG_MARK).append(" ThreadId:").append(Thread.currentThread().getId());
+        output.append("--Type:").append(type);
+        output.append("--Time:").append(LocalDateTime.now().format(formatter)).append("\n");
+        output.append(JDBC_SQL_LOG_MARK).append(" 原始SQL：").append(originalSql).append("\n");
+        output.append(JDBC_SQL_LOG_MARK).append(" 执行SQL：").append(replaceSql).append("\n");
+        output.append(JDBC_SQL_LOG_MARK).append(replace);
         System.out.println(output);
     }
 
@@ -67,7 +66,7 @@ public class InterceptMethod {
             }
 
             // 将占位符之前的内容添加到结果中
-            result.append(template.substring(templateIndex, placeholderIndex));
+            result.append(template, templateIndex, placeholderIndex);
 
             // 如果还有可用的替换值，将其添加到结果中，否则添加占位符
             if (replacementIndex < replacements.length) {

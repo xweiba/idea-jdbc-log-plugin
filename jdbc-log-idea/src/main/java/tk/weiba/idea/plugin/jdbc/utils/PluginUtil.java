@@ -25,6 +25,10 @@ public class PluginUtil {
 
 
     private static String getJarPathByStartWith(String startWith) {
+        if (IDEA_PLUGIN_DESCRIPTOR == null) {
+            System.out.println("Idea JDBC LOG Plugin插件目录获取失败");
+            return null;
+        }
         final String quotes = "\"";
         List<File> files = FileUtil.loopFiles(IDEA_PLUGIN_DESCRIPTOR.getPath());
         for (File file : files) {

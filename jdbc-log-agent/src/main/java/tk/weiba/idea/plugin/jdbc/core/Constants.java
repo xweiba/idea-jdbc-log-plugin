@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Constants {
 
-    public static final String JDBC_SQL_LOG_MARK = "JDBC_SQL_LOG - ";
+    public static final String JDBC_SQL_LOG_MARK = "JDBC_SQL_LOG -";
 
 
     public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
