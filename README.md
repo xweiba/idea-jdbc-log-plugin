@@ -1,7 +1,7 @@
 # Idea-JDBC-Log-Plugin
 > 基于Java Agent模式，通过ByteBuddy对java.sql.PreparedStatement execute接口做代理，打印SQL。
 
-## build
+## Build
 1. jdbc-log-agent执行shadowJar生成build/libs/jdbc-log-agent-xxx.jar，复制到jdbc-log-idea/libs中。
 2. jdbc-log-plugin的gradle面板执行Tasks-intellij-buildPlugin生成插件离线包 jdbc-log-idea/build/distributions/jdbc-log-idea-xxx.zip
 
