@@ -7,8 +7,7 @@
       Mysql Log Idea 插件<br>
       <em>1. 基于Java Agent模式加载</em><br>
       <em>2. 代理ClientPreparedStatement实现log输出</em><br>
-      <em>3. 感谢小傅哥</em><br>
-    ]]></description>
+      <em>3. 感谢小傅哥</em><br>]]></description>
 
     <depends>com.intellij.modules.java</depends>
 

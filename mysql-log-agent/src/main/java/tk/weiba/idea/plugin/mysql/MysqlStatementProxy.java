@@ -19,13 +19,12 @@ public class MysqlStatementProxy implements ClassFileTransformer {
                     .method(ElementMatchers.named("executeInternal")) // 拦截任意方法
                     .intercept(MethodDelegation.to(MonitorMethod.class)); // 委托
         };
-
-        System.out.println("开启代理");
         new AgentBuilder
                 .Default()
                 .type(ElementMatchers.nameStartsWith("com.mysql.cj.jdbc.ClientPreparedStatement"))
                 .transform(transformer)
                 .installOn(inst);
+        System.out.println("mysql_log - com.mysql.cj.jdbc.ClientPreparedStatement executeInternal 开启代理");
     }
 
     //如果代理类没有实现上面的方法，那么 JVM 将尝试调用该方法
