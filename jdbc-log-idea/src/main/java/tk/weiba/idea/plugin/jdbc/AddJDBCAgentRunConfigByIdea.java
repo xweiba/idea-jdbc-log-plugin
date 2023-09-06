@@ -9,6 +9,7 @@ import com.intellij.execution.runners.JavaProgramPatcher;
 import com.intellij.openapi.projectRoots.JavaSdk;
 import com.intellij.openapi.projectRoots.JavaSdkVersion;
 import com.intellij.openapi.projectRoots.Sdk;
+import tk.weiba.idea.plugin.jdbc.core.Constants;
 import tk.weiba.idea.plugin.jdbc.utils.PluginUtil;
 
 import java.util.Objects;
@@ -21,6 +22,13 @@ public class AddJDBCAgentRunConfigByIdea extends JavaProgramPatcher {
         if (!(configuration instanceof RunConfiguration)) {
             return;
         }
+
+        String runClassName = configuration.getClass().getName();
+        if (Constants.EXCLUDE_RUN_CONFIG_CLASS.contains(runClassName)) {
+            return;
+        }
+
+        System.out.println(runClassName);
 
         Sdk jdk = javaParameters.getJdk();
 
